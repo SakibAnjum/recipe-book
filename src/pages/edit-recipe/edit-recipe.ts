@@ -42,20 +42,20 @@ export class EditRecipePage implements OnInit{
     console.log("sfd",this.recipeForm)
   }
 
-  onManage(){
+  onManage() {
     const actSheet = this.actCtrl.create({
-      title : "what ddo you want to do?",
-      buttons:[
+      title: "what ddo you want to do?",
+      buttons: [
         {
           text: 'Add',
-          handler: () =>{
-
+          handler: () => {
+            this.createNew().present();
           }
         },
         {
           text: 'Remove All',
           role: "destructive",
-          handler: () =>{
+          handler: () => {
 
           }
         },
@@ -64,10 +64,11 @@ export class EditRecipePage implements OnInit{
           role: "cancel"
         }
       ]
-    })
-
+    });
+    actSheet.present();
+  }
     private createNew(){
-      const NewIng = this.alrtCtrl.create({
+      return this.alrtCtrl.create({
         titlee: "Add",
         inputs:[
           {
@@ -84,15 +85,18 @@ export class EditRecipePage implements OnInit{
           {
             text: 'Add',
             handler: data =>{
-              if(data.name== '' || data.name == null){
-
+              if(data.name.trim() == '' || data.name == null){
+                return;
               }
+              (<FormArray>this.recipeForm.get('ingredients'))
+                .push(new FormControl(data.name,Validators.required));
             }
           }
         ]
-      })
+      });
     }
-  }
+
+
 
 
 }
