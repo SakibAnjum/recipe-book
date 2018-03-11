@@ -28,5 +28,15 @@
 
     <button type="submit" ion-button block [disabled]="!f.valid" >Add</button>
   </form>
+
+
+  <ion-list>
+    <ion-item *ngFor="let item of listItem;
+    let i = index" (click)="onCheckItem(i)">
+
+      <h3>{{item.name}} ({{item.number}})</h3>
+
+    </ion-item>
+  </ion-list>
 </ion-content>
 
