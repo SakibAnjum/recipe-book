@@ -14,7 +14,7 @@ import {Recipes} from "../../models/recipe";
   templateUrl: 'edit-recipe.html',
 })
 export class EditRecipePage implements OnInit{
-  mode: 'New';
+  mode='New';
   selectOptions = ['Easy','Medium', 'Hard'];
   recipeForm: FormGroup;
   recipe: Recipes;
@@ -161,8 +161,6 @@ export class EditRecipePage implements OnInit{
         ]
       });
     }
-
-
 
 
 }
