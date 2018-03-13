@@ -14,4 +14,7 @@ export class AuthService{
     fb.auth().signOut();
   }
 
+  getActiveUser(){
+    return fb.auth().currentUser;
+  }
 }

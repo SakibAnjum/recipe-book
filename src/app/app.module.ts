@@ -9,9 +9,12 @@ import {ShopingListService} from "../services/shoping-list";
 import {RecipesService} from "../services/recipes";
 import {AuthService} from "../services/auth-service";
 
+import {SlOptions} from '../pages/shoping-list/sl-options/sl-options'
+
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    SlOptions
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import {AuthService} from "../services/auth-service";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    SlOptions
   ],
   providers: [
     StatusBar,
